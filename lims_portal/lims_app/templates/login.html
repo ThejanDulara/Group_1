@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register - TJK Libraries</title>
+    <title>Login - TJK Libraries</title>
     <!-- Bootstrap CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
@@ -49,15 +49,15 @@
     <div class="container">
         <div class="card">
             <div class="card-header">
-                Register
+                Login
             </div>
             <div class="card-body">
                 <form method="post">
                     {% csrf_token %}
                     {{ form.as_p }}
-                    <button type="submit" class="btn btn-primary btn-block">Register</button>
+                    <button type="submit" class="btn btn-primary btn-block">Login</button>
                 </form>
-                <p class="text-center mt-3">Already have an account? <a href="{% url 'login' %}">Login here</a></p>
+                <p class="text-center mt-3">Don't have an account? <a href="{% url 'register' %}">Register here</a></p>
             </div>
         </div>
     </div>

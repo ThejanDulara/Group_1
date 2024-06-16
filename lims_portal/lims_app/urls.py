@@ -23,3 +23,10 @@ from .views import *
 from . import views
 from django.contrib.auth import views as auth_views
 
+urlpatterns = [
+    path('', views.index, name='index'),
+    path('book/<int:book_id>/', views.book_detail, name='book_detail'),
+    path('reserve/<int:book_id>/', views.reserve_book, name='reserve_book'),
+    path('login/', views.user_login, name='login'),
+    path('register/', views.register, name='register'),
+]
