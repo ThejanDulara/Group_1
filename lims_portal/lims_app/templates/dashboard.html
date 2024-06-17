@@ -4,35 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Library Home Page</title>
-    <link rel="stylesheet" href="Home.css">
-    <style>
-        header h1 {
-            color: white;
-        }
-    </style>
-</head>
-<body>
-    <header>
-        <h1>TJK Library</h1>
-        <nav>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Categories</a></li>
-                <li><a href="#">My Reservations</a></li>
-                <li><a href="#">History</a></li>
-                <li><a href="#">Recommendations</a></li>
-                <li><a href="#">Contact</a></li>
-                <li><a href="/logout">Logout</a></li>
-            </ul>
-        </nav>
-    </header>
-</body>
-</html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Dashboard - Library Management System</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -40,6 +11,34 @@
             color: #333;
             margin: 0;
             padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            padding: 20px;
+        }
+
+        header h1 {
+            color: white;
+            margin: 0;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        nav ul li {
+            margin: 0 10px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
         }
 
         .container {
@@ -212,6 +211,20 @@
     </style>
 </head>
 <body>
+    <header>
+        <h1>TJK Library</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Categories</a></li>
+                <li><a href="#">My Reservations</a></li>
+                <li><a href="#">History</a></li>
+                <li><a href="#">Recommendations</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="/logout">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
     <div class="container">
         <div class="dashboard">
             <div class="greeting">
@@ -264,7 +277,7 @@
                     <p>You returned <span>"To Kill a Mockingbird"</span> on <span>June 5, 2024</span>.</p>
                 </div>
             </div>
-           <div class="featured-books">
+            <div class="featured-books">
                 <h3 class="section-title">Featured Books</h3>
                 <div class="book-item">
                     <p><span>"Moby Dick"</span> by <span>Herman Melville</span></p>
