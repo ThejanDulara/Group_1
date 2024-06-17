@@ -1,0 +1,124 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif; /* Ensuring the font family matches */
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('background.jpg'); /* Path to your image */
+    background-size: cover; /* Cover the entire page */
+    background-repeat: no-repeat; /* Don't repeat the image */
+    background-position: center center; /* Center the image */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+    padding: 28px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 650px;
+    margin-bottom: 60px;
+}
+
+.form-title {
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+}
+
+.main-user-info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 20px 0;
+}
+
+.user-input-box {
+    display: flex;
+    flex-wrap: wrap;
+    width: 50%;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.user-input-box:nth-child(2n) {
+    justify-content: end;
+}
+
+.user-input-box label {
+    width: 95%;
+    color: #333; /* Changed to match the color scheme */
+    margin: 5px 0;
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.user-input-box input {
+    height: 40px;
+    width: 95%;
+    border-radius: 7px;
+    outline: none;
+    border: 1px solid #ccc; /* Changed to match the color scheme */
+    padding: 0 10px;
+}
+
+.gender-title {
+    display: flex;
+    flex-wrap: wrap;
+    width: 50%;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.gender-category {
+    margin: 15px 0;
+    color: #333; /* Changed to match the color scheme */
+}
+
+.gender-category label {
+    padding: 0 20px 0 5px;
+}
+
+.gender-category label,
+.gender-category input,
+.form-submit-btn input {
+    cursor: pointer;
+}
+
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Align items vertically */
+    margin-top: 15px; /* Added margin top */
+}
+
+.btn {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.register-btn {
+    background-color: #28a745;
+    color: #fff;
+
+}
+
+.agree {
+    display: flex;
+}
+.agree {
+    margin: 5px ;
+}
