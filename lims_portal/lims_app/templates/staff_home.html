@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staff Home Page - TJK Library</title>
+    <link rel="stylesheet" href="staff_home.css">
+</head>
+<body>
+    <header class="welcome-header">
+        <h1>TJK Library</h1>
+        <p>Staff Portal</p>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Borrowing Requests</a></li>
+                <li><a href="#">Search Books</a></li>
+                <li><a href="#">Manage Members</a></li>
+                <li><a href="add_books.html">Add Books</a></li>
+                <li><a href="landing_page.html">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="borrowing-requests">
+            <h2>Borrowing Requests</h2>
+            <div id="requests">
+                <!-- Borrowing requests will be displayed here -->
+            </div>
+        </section>
+        <section class="search-section">
+            <h2>Search Books</h2>
+            <input type="text" id="search-bar" placeholder="Search for books...">
+            <button id="search-button">Search</button>
+            <div id="search-results">
+                <!-- Search results will be displayed here -->
+            </div>
+        </section>
+        <section class="manage-members">
+            <h2>Manage Members</h2>
+            <input type="text" id="member-search-bar" placeholder="Search for members...">
+            <button id="member-search-button">Search</button>
+            <div id="members-list">
+                <!-- Members list will be displayed here -->
+            </div>
+        </section>
+    </main>
+</body>
+</html>
