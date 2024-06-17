@@ -2,12 +2,40 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <h1>TJK Library Management System</h1>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Home Page</title>
+    <link rel="stylesheet" href="Home.css">
+    <style>
+        header h1 {
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>TJK Library</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Categories</a></li>
+                <li><a href="#">My Reservations</a></li>
+                <li><a href="#">History</a></li>
+                <li><a href="#">Recommendations</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="/logout">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+</body>
+</html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Dashboard - Library Management System</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background: url('background.jpg') no-repeat center center fixed;
             background-size: cover;
             color: #333;
             margin: 0;
@@ -185,7 +213,6 @@
 </head>
 <body>
     <div class="container">
-        <h1>User Dashboard</h1>
         <div class="dashboard">
             <div class="greeting">
                 <h2>Welcome, [User's Name]!</h2>
@@ -198,45 +225,16 @@
                             <span aria-hidden="true" class="search-facet-value">Search By</span>
                             <select aria-label="Search by">
                                 <option value="all">All</option>
-                                <option value="title">Title</option>
+                                <option value="name">Name</option>
                                 <option value="author">Author</option>
-                                <option value="text">Text</option>
-                                <option value="subject">Subject</option>
-                                <option value="lists">Lists</option>
-                                <option value="advanced">Advanced</option>
+                                <option value="category">Category</option>
                             </select>
                         </label>
                     </div>
                     <form class="search-bar-input" action="/search" method="get">
-                        <input type="text" name="q" placeholder="Search" aria-label="Search" autocomplete="off">
+                        <input type="text" name="q" placeholder="Search..." aria-label="Search" autocomplete="off">
                         <input type="submit" value="Search" class="search-bar-submit" aria-label="Search submit">
                     </form>
-                </div>
-            </div>
-            <div class="features">
-                <div class="feature">
-                    <div class="feature-icon">📚</div>
-                    <a href="/search">Search Books</a>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon">📂</div>
-                    <a href="/browse">Browse Categories</a>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon">📅</div>
-                    <a href="/reservations">My Reservations</a>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon">📖</div>
-                    <a href="/loans">My Loans</a>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon">👤</div>
-                    <a href="/account">My Account</a>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon">🌟</div>
-                    <a href="/recommendations">Recommendations</a>
                 </div>
             </div>
             <div class="stats">
@@ -266,7 +264,7 @@
                     <p>You returned <span>"To Kill a Mockingbird"</span> on <span>June 5, 2024</span>.</p>
                 </div>
             </div>
-            <div class="featured-books">
+           <div class="featured-books">
                 <h3 class="section-title">Featured Books</h3>
                 <div class="book-item">
                     <p><span>"Moby Dick"</span> by <span>Herman Melville</span></p>
@@ -277,9 +275,6 @@
                 <div class="book-item">
                     <p><span>"War and Peace"</span> by <span>Leo Tolstoy</span></p>
                 </div>
-            </div>
-            <div class="logout">
-                <a href="/logout">Logout</a>
             </div>
         </div>
     </div>
