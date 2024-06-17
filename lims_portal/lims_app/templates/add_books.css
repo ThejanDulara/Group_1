@@ -62,6 +62,19 @@ form {
     border-radius: 4px;
 }
 
+.form-group textarea {
+    width: calc(100% - 20px);
+    height: 100px; /* Adjust this value as needed */
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical; /* Allows vertical resizing */
+}
+
+.form-group:nth-child(6) input[type="text"] {
+    height: 100px; /* Adjust this value as needed */
+}
 .button-group {
     display: flex;
     justify-content: space-between;
