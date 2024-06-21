@@ -66,6 +66,22 @@ h2 {
     border: 1px solid #ccc;
     border-radius: 4px;
 }
+
+.Login-type {
+    text-align: left;
+    margin-bottom: 15px;
+}
+
+.Login-type label {
+    padding-right: 10px;
+    color: #333;
+}
+
+.Login-type input[type="radio"] {
+    margin-left: 10px;
+    margin-right: 5px;
+}
+
 .remember {
     display: flex;
 }
