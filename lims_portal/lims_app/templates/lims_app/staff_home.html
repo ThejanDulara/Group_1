@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Staff Home Page - TJK Library</title>
-    <link rel="stylesheet" href="staff_home.css">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'CSS/staff_home.css'%}">
 </head>
 <body>
     <header class="welcome-header">
@@ -16,8 +17,8 @@
                 <li><a href="#">Borrowing Requests</a></li>
                 <li><a href="#">Search Books</a></li>
                 <li><a href="#">Manage Members</a></li>
-                <li><a href="add_books.html">Add Books</a></li>
-                <li><a href="landing_page.html">Logout</a></li>
+                <li><a href="#">Add Books</a></li>
+                <li><a href="{% url 'Home' %}">Logout</a></li>
             </ul>
         </nav>
     </header>
