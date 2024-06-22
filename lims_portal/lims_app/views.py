@@ -57,3 +57,14 @@ def Staff(request):
         form = AddBookForm()"""
 
     return render(request, 'lims_app/staff_home.html')
+
+def About_Us(request):
+    """if request.method == 'POST':
+        form = LanfingPageForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('add_books')  # Redirect to the same page after saving
+    else:
+        form = AddBookForm()"""
+
+    return render(request, 'lims_app/about_us.html')
