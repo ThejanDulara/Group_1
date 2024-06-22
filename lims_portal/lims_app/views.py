@@ -18,7 +18,7 @@ def add_books(request):
 
 
 def Home(request):
-    return render(request, 'lims_app/landing_page.html')
+    return render(request, 'lims_app/home.html')
 
 
 def Register(request):
@@ -47,7 +47,7 @@ def login_view(request):
                 if user_type == 'staff':
                     return redirect('Staff')  # Redirect to staff page
                 elif user_type == 'member':
-                    return redirect('Home')  # Redirect to member page
+                    return redirect('user')  # Redirect to member page
             else:
                 messages.error(request, 'Invalid username or password.')
 
@@ -58,4 +58,11 @@ def login_view(request):
 
 
 def Staff(request):
-    return render(request, 'lims_app/staff_home.html')
+    return render(request, 'lims_app/staff_page.html')
+
+
+def catalogue(request):
+    return render(request, 'lims_app/catalogue.html')
+
+def user(request):
+    return render(request, 'lims_app/user_page.html')
