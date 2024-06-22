@@ -64,5 +64,10 @@ def Staff(request):
 def catalogue(request):
     return render(request, 'lims_app/catalogue.html')
 
+
 def user(request):
     return render(request, 'lims_app/user_page.html')
+
+
+def contact(request):
+    return render(request, 'lims_app/contact.html')
