@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - TJK Library</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'CSS/about_us.css' %}">
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <h1>TJK Library</h1>
+            <p>About Us</p>
+            <nav>
+                <ul>
+                    <li><a href="{% url 'Home' %}">Home</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Catalog</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="{% url 'Login' %}">Login</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+
+        <section class="background-history">
+            <h2>History</h2>
+            <p>TJK Library was founded in 2024 by a group of passionate individuals who recognized the need for a dedicated community space for learning and literacy. TJK Library has grown to become a cornerstone of the community, offering a vast collection of books and resources, educational programs, and community events.</p>
+        </section>
+        <section class="why-started">
+            <h2>Why We Started</h2>
+            <p>We started TJK Library to bridge the gap between knowledge and the community. Our founders, Thejan Dulara, Janani Halwala, and Kabilashika Thiyagarajah, envisioned a place where people of all ages could come together to explore, learn, and grow. Their commitment to education and community service drives our mission and vision every day.</p>
+        </section>
+        <section class="intro">
+            <h2>Vision</h2>
+            <p>To be a beacon of knowledge and learning, fostering a community of informed and empowered individuals.</p>
+            <h2>Mission</h2>
+            <p>To provide access to a diverse collection of books and resources, promote literacy, and support lifelong learning through a welcoming and inclusive environment.</p>
+        </section>
+        <section class="directors-messages">
+            <h2>Directors' Messages</h2>
+            <div class="director-message">
+                <h3>Thejan Dulara</h3>
+                <p>"Welcome to TJK Library, a place where knowledge meets community. We are committed to providing a welcoming and resourceful environment for all."</p>
+            </div>
+            <div class="director-message">
+                <h3>Janani Halwala</h3>
+                <p>"Our mission is to promote literacy and lifelong learning. At TJK Library, you will find a diverse collection of resources to support your educational journey."</p>
+            </div>
+            <div class="director-message">
+                <h3>Kabilashika Thiyagarajah</h3>
+                <p>"We believe in the power of knowledge to transform lives. TJK Library is here to provide you with the tools and resources you need to succeed."</p>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 TJK Library. All rights reserved.</p>
+    </footer>
+</body>
+</html>
