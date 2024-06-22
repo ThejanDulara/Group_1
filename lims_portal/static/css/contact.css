@@ -1,0 +1,57 @@
+body {
+    background-image: url('background.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+.container {
+    background-color: rgba(255, 255, 255, 0.9); /* Adding a slight white background for readability */
+    padding: 20px;
+    border-radius: 8px;
+}
+.contactshead {
+    font-weight: bold;
+}
+.contacts {
+    margin-bottom: 20px;
+}
+.breadcrumb {
+    background-color: rgba(255, 255, 255, 0.8);
+}
+.btnsub {
+    margin-top: 10px;
+}
+.br {
+    margin-bottom: 20px;
+}
+.backcolorblack {
+    background-color: black;
+}
+.backcolorfoot {
+    background-color: gray;
+}
+.div_head {
+    text-align: center;
+}
+.p_head {
+    font-size: 18px;
+    font-weight: bold;
+}
+.head-details {
+    margin-bottom: 20px;
+}
+.head-details img {
+    width: 100px;
+    height: 120px;
+    object-fit: cover;
+}
+.contact-info {
+    padding-left: 20px;
+}
+.table {
+    width: 100%;
+    margin-bottom: 20px;
+}
+.contact-info p {
+    margin: 0;
+}
