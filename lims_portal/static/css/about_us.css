@@ -1,3 +1,10 @@
+/* Reset default margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -10,7 +17,7 @@ body {
 }
 
 .header {
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
     color: #fff;
     padding: 20px 0;
     text-align: center;
@@ -98,17 +105,23 @@ main {
     margin-bottom: 40px;
 }
 
-.directors-messages .director-message {
+.tabcontent h2 {
+    margin: 0 0 20px;
+    font-size: 28px;
+    color: #007bff;
+}
+
+.director-message {
     margin-bottom: 20px;
 }
 
-.directors-messages .director-message h3 {
+.director-message h3 {
     font-size: 24px;
     color: #007bff;
     margin-bottom: 10px;
 }
 
-.directors-messages .director-message p {
+.director-message p {
     font-size: 16px;
     margin: 0;
 }
