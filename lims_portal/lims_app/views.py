@@ -79,3 +79,6 @@ def signup(request):
 def user_logout(request):
     auth.logout(request)
     return redirect("home")
+
+def services(request):
+    return render(request, 'lims_app/services.html')
