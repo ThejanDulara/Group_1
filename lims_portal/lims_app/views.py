@@ -6,6 +6,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 
 
+@login_required(login_url="login")
 def add_books(request):
     if request.method == 'POST':
         form = AddBookForm(request.POST)
@@ -22,6 +23,7 @@ def Home(request):
     return render(request, 'lims_app/home.html')
 
 
+@login_required(login_url="login")
 def Staff(request):
     return render(request, 'lims_app/staff_page.html')
 
@@ -55,7 +57,10 @@ def user_login(request):
 
             if user is not None:
                 auth.login(request, user)
-                return redirect("user")
+                if user.is_superuser:
+                    return redirect('select_redirect')  # Redirect to select redirect view for superusers
+                else:
+                    return redirect("user")  # Redirect normal users to user page
 
     context = {'loginform': form}
 
@@ -79,3 +84,16 @@ def signup(request):
 def user_logout(request):
     auth.logout(request)
     return redirect("home")
+
+
+@login_required(login_url="login")
+def select_redirect(request):
+    if not request.user.is_superuser:
+        return redirect('home')
+
+    if request.method == 'POST':
+        selected_page = request.POST.get('selected_page')
+        if selected_page:
+            return redirect(selected_page)
+
+    return render(request, 'lims_app/select_redirect.html')
