@@ -2,7 +2,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-image: url('../images/background.jpg');
+    background-image: url('../images/background.jpg'); /* Path to your background image */
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
@@ -10,7 +10,7 @@ body {
 }
 
 .header {
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
     color: #fff;
     padding: 20px 0;
     text-align: center;
@@ -96,6 +96,12 @@ main {
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin-bottom: 40px;
+}
+
+.tabcontent h2 {
+    margin: 0 0 20px;
+    font-size: 28px;
+    color: #007bff;
 }
 
 .directors-messages .director-message {
