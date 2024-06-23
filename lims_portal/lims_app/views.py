@@ -1,8 +1,9 @@
 from django.shortcuts import render, redirect
-from .forms import AddBookForm, UserRegisterForm, UserLoginForm
-from django.contrib.auth import authenticate, login
-from django.contrib import messages
-from .models import Profile
+from .forms import AddBookForm
+from .forms import CreateUserForm, LoginForm
+from django.contrib.auth.models import auth
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 
 
 def add_books(request):
@@ -21,48 +22,6 @@ def Home(request):
     return render(request, 'lims_app/home.html')
 
 
-def register(request):
-    if request.method == 'POST':
-        form = UserRegisterForm(request.POST)
-        if form.is_valid():
-            form.save()
-            username = form.cleaned_data.get('username')
-            raw_password = form.cleaned_data.get('password1')
-            user = authenticate(username=username, password=raw_password)
-            login(request, user)
-            return redirect('profile')
-    else:
-        form = UserRegisterForm()
-    return render(request, 'lims_app/register.html', {'form': form})
-
-
-def profile(request):
-    if request.user.groups.filter(name='Staff').exists():
-        return redirect('staff')
-    else:
-        return redirect('user')
-
-def login_view(request):
-    if request.method == 'POST':
-        form = UserLoginForm(request.POST)
-        if form.is_valid():
-            username = form.cleaned_data['username']
-            password = form.cleaned_data['password']
-            user = authenticate(request, username=username, password=password)
-            if user is not None:
-                login(request, user)
-                profile = Profile.objects.get(user=user)
-                if profile.user_type == 'staff':
-                    return redirect('Staff')
-                elif profile.user_type == 'member':
-                    return redirect('user')
-            else:
-                messages.error(request, 'Invalid username or password')
-    else:
-        form = UserLoginForm()
-    return render(request, 'lims_app/login.html', {'form': form})
-
-
 def Staff(request):
     return render(request, 'lims_app/staff_page.html')
 
@@ -71,6 +30,7 @@ def catalogue(request):
     return render(request, 'lims_app/catalogue.html')
 
 
+@login_required(login_url="login")
 def user(request):
     return render(request, 'lims_app/user_page.html')
 
@@ -81,3 +41,41 @@ def contact(request):
 
 def about_us(request):
     return render(request, 'lims_app/about_us.html')
+
+
+def user_login(request):
+    form = LoginForm()
+
+    if request.method == 'POST':
+        form = LoginForm(data=request.POST)
+        if form.is_valid():
+            username = request.POST.get('username')
+            password = request.POST.get('password')
+            user = authenticate(request, username=username, password=password)
+
+            if user is not None:
+                auth.login(request, user)
+                return redirect("user")
+
+    context = {'loginform': form}
+
+    return render(request, 'lims_app/login.html', context=context)
+
+
+def signup(request):
+    if request.method == 'POST':
+        form = CreateUserForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            return redirect("user")  # Redirect to user page after successful registration
+    else:
+        form = CreateUserForm()
+
+    context = {'signupform': form}
+    return render(request, 'lims_app/register.html', context=context)
+
+
+def user_logout(request):
+    auth.logout(request)
+    return redirect("home")

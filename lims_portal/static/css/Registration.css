@@ -48,6 +48,7 @@ body {
     padding-bottom: 15px;
     margin-bottom: 0px;
     text-align: left;
+    flex-direction: column; /* Ensure column direction */
 }
 
 .user-input-box:nth-child(2n) {
@@ -71,6 +72,13 @@ body {
     padding: 0 10px;
 }
 
+.error-message {
+    color: red;
+    font-size: 0.9em;
+    margin-top: 5px;
+    display: block;
+}
+
 .extra-info {
     display: flex;
     flex-direction: column;
@@ -81,7 +89,6 @@ body {
     display: flex;
     align-items: center;
     margin-bottom: 15px;
-
 }
 
 .inline-title {
@@ -129,9 +136,29 @@ body {
     margin: 5px 0;
 }
 
-.error-message {
-    color: red;
-    font-size: 0.9em;
-    margin-top: 5px;
-    display: block;
+.user-input-box.password-fields {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.user-input-box.password-fields .user-input-box {
+    width: 48%; /* Adjust to fit in a row */
+}
+
+.user-input-box.password-fields .error-message {
+    width: 100%;
+    padding-left: 52%; /* Adjust to align under the right field */
+}
+
+@media screen and (max-width: 768px) {
+    .user-input-box {
+        width: 100%; /* Full width on smaller screens */
+    }
+    .user-input-box.password-fields {
+        flex-direction: column;
+    }
+    .user-input-box.password-fields .error-message {
+        padding-left: 0;
+    }
 }
