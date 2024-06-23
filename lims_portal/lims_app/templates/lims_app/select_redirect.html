@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Page - TJK Library</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'CSS/select_redirect.css' %}">
+</head>
+<body>
+    <div class="selection-container">
+        <h1>Welcome, TJK Library Staff!</h1>
+        <p class="motivational-caption">"Together, we make knowledge accessible and inspire lifelong learning."</p>
+        <div class="user-photo"></div> <!-- Removed the img tag -->
+        <div class="selection-buttons">
+            <form action="{% url 'select_redirect' %}" method="post">
+                {% csrf_token %}
+                <button type="submit" name="selected_page" value="{% url 'user' %}" class="btn user-btn">User Page</button>
+                <button type="submit" name="selected_page" value="{% url 'Staff' %}" class="btn staff-btn">Staff Page</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
