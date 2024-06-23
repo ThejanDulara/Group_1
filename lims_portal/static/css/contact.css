@@ -1,5 +1,5 @@
 body {
-            background-image: url('../images/image1.jpg');
+            background-image: url('../images/background.jpg');
             background-size: cover;
             background-repeat: no-repeat;
             background-attachment: fixed;
@@ -40,10 +40,31 @@ body {
         .head-details {
             margin-bottom: 20px;
         }
-        .head-details img {
+        .head-image {
             width: 100px;
             height: 120px;
-            object-fit: cover;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            margin: 0 auto 10px;
+        }
+        .head-image.thejan {
+            background-image: url('../images/image1.jpg');
+        }
+        .head-image.kabilashika {
+            background-image: url('../images/image2.jpg');
+        }
+        .head-image.janani {
+            background-image: url('../images/image3.jpg');
+        }
+        .head-image.amila {
+            background-image: url('../img/heads_of_divisions/amila.jpg');
+        }
+        .head-image.ama {
+            background-image: url('../img/heads_of_divisions/ama.jpg');
+        }
+        .head-image.malith {
+            background-image: url('../img/heads_of_divisions/malith.jpg');
         }
         .contact-info {
             padding-left: 20px;
