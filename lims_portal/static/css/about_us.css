@@ -1,8 +1,15 @@
+/* Reset default margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-image: url('../images/background.jpg'); /* Path to your background image */
+    background-image: url('../images/background.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
@@ -104,17 +111,17 @@ main {
     color: #007bff;
 }
 
-.directors-messages .director-message {
+.director-message {
     margin-bottom: 20px;
 }
 
-.directors-messages .director-message h3 {
+.director-message h3 {
     font-size: 24px;
     color: #007bff;
     margin-bottom: 10px;
 }
 
-.directors-messages .director-message p {
+.director-message p {
     font-size: 16px;
     margin: 0;
 }
