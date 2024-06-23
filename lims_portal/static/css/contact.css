@@ -1,57 +1,78 @@
 body {
-            background-image: url('../images/image1.jpg');
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-        }
-        .container {
-            background-color: rgba(255, 255, 255, 0.9); /* Adding a slight white background for readability */
-            padding: 20px;
-            border-radius: 8px;
-        }
-        .contactshead {
-            font-weight: bold;
-        }
-        .contacts {
-            margin-bottom: 20px;
-        }
-        .breadcrumb {
-            background-color: rgba(255, 255, 255, 0.8);
-        }
-        .btnsub {
-            margin-top: 10px;
-        }
-        .br {
-            margin-bottom: 20px;
-        }
-        .backcolorblack {
-            background-color: black;
-        }
-        .backcolorfoot {
-            background-color: gray;
-        }
-        .div_head {
-            text-align: center;
-        }
-        .p_head {
-            font-size: 18px;
-            font-weight: bold;
-        }
-        .head-details {
-            margin-bottom: 20px;
-        }
-        .head-details img {
-            width: 100px;
-            height: 120px;
-            object-fit: cover;
-        }
-        .contact-info {
-            padding-left: 20px;
-        }
-        .table {
-            width: 100%;
-            margin-bottom: 20px;
-        }
-        .contact-info p {
-            margin: 0;
-        }
+    background-image: url('../images/background.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+.container {
+    background-color: rgba(255, 255, 255, 0.9); /* Adding a slight white background for readability */
+    padding: 20px;
+    border-radius: 8px;
+}
+.contactshead {
+    font-weight: bold;
+}
+.contacts {
+    margin-bottom: 20px;
+}
+.breadcrumb {
+    background-color: rgba(255, 255, 255, 0.8);
+}
+.btnsub {
+    margin-top: 10px;
+}
+.br {
+    margin-bottom: 20px;
+}
+.backcolorblack {
+    background-color: black;
+}
+.backcolorfoot {
+    background-color: gray;
+}
+.div_head {
+    text-align: center;
+}
+.p_head {
+    font-size: 18px;
+    font-weight: bold;
+}
+.head-details {
+    margin-bottom: 20px;
+}
+.head-image {
+    width: 100px;
+    height: 120px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0 auto 10px;
+}
+.head-image.thejan {
+    background-image: url('../images/image1.jpg');
+}
+.head-image.kabilashika {
+    background-image: url('../images/image2.jpg');
+}
+.head-image.janani {
+    background-image: url('../images/image3.jpg');
+}
+.head-image.amila {
+    background-image: url('../images/image5.jpg');
+}
+.head-image.ama {
+    background-image: url('../images/image4.jpg');
+}
+.head-image.malith {
+    background-image: url('../images/image6.jpg');
+}
+.contact-info {
+    padding-left: 20px;
+}
+.table {
+    width: 100%;
+    margin-bottom: 20px;
+}
+.contact-info p {
+    margin: 0;
+}
