@@ -24,13 +24,6 @@
                 <label for="password">Password</label>
                 <input type="password" id="password" name="password" required>
             </div>
-            <div class="Login-type">
-                <label class="Login-type">Login as : </label>
-                <input type="radio" name="login-type" id="member" value="member" required>
-                <label for="member">Member</label>
-                <input type="radio" name="login-type" id="staff" value="staff" required>
-                <label for="staff">Staff</label>
-            </div>
             <div class="remember">
                 <input type="checkbox" id="remember-me">
                 <label for="remember-me" class="remember-me" id="remember-me-label">Remember Me</label>
@@ -40,7 +33,7 @@
                 <a href="#" class="forgot-password">Forgot Password?</a>
             </div>
         </form>
-        <p class="register-link">Don't have an account? <a href="{% url 'Register' %}">Register here</a></p>
+        <p class="register-link">Don't have an account? <a href="{% url 'signup' %}">Register here</a></p>
     </div>
 </body>
 </html>

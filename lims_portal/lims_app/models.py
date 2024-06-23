@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 
 class AddBook(models.Model):
@@ -9,24 +10,22 @@ class AddBook(models.Model):
     quantity = models.IntegerField()
     description = models.TextField()
 
-    def __str__(self):
-        return self.name
 
-
-class Register(models.Model):
+class profile(models.Model):
     GENDER_CHOICES = [
-        ('male', 'Male'),
-        ('female', 'Female'),
-        ('other', 'Other'),
+        ('male', 'male'),
+        ('female', 'female'),
+        ('other', 'other'),
     ]
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
     fullname = models.CharField(max_length=100)
-    username = models.CharField(max_length=100)
-    email = models.EmailField(max_length=100)
-    phoneNumber = models.CharField(max_length=100)
-    password = models.CharField(max_length=100)
-    confirm_password = models.CharField(max_length=100)
+    phone_number = models.CharField(max_length=15)
     gender = models.CharField(max_length=6, choices=GENDER_CHOICES, default='other')
 
     def __str__(self):
-        return self.username
+        return self.user.username
+
+
+
+
 
