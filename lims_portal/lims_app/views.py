@@ -68,7 +68,7 @@ def signup(request):
         if form.is_valid():
             user = form.save()
             login(request, user)
-            return redirect("user")  # Redirect to user page after successful registration
+            return redirect("login")  # Redirect to user page after successful registration
     else:
         form = CreateUserForm()
 
