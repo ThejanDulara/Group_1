@@ -1,42 +1,44 @@
+/* Reset default margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
     background-image: url('../images/background.jpg');
     background-size: cover;
     background-repeat: no-repeat;
-    background-attachment: fixed;
+    background-position: center center;
+    color: #333;
 }
-.container {
-    background-color: rgba(255, 255, 255, 0.9); /* Adding a slight white background for readability */
-    padding: 20px;
-    border-radius: 8px;
-}
-.contactshead {
-    font-weight: bold;
-}
-.contacts {
-    margin-bottom: 20px;
-}
-.breadcrumb {
-    background-color: rgba(255, 255, 255, 0.8);
-}
-.btnsub {
-    margin-top: 10px;
-}
-.br {
-    margin-bottom: 20px;
-}
-.backcolorblack {
-    background-color: black;
-}
-.backcolorfoot {
-    background-color: gray;
-}
-.div_head {
+
+.header {
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+    color: #fff;
+    padding: 20px 0;
     text-align: center;
 }
-.p_head {
-    font-size: 18px;
-    font-weight: bold;
+
+.header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
+
+.header h1 {
+    margin: 0;
+    font-size: 36px;
+}
+
+.header p {
+    margin: 10px 0 20px;
+    font-size: 18px;
+}
+
 nav ul {
     list-style: none;
     padding: 0;
@@ -50,7 +52,7 @@ nav ul li {
 }
 
 nav ul li a {
-    color: black;
+    color: #fff;
     text-decoration: none;
     font-size: 16px;
 }
@@ -58,57 +60,73 @@ nav ul li a {
 nav ul li a:hover {
     text-decoration: underline;
 }
-.head-details {
-    align-items: center;
-    margin-bottom: 20px;
-    background-color: rgba(255, 255, 255, 0.8); /* Slight white background for readability */
-    padding: 10px;
-    border-radius: 8px;
-}
-.head-image {
-    width: 100px;
-    height: 120px;
-    background-size: cover;
-    background-position: left;
-    background-repeat: no-repeat;
-    margin-right: 20px;
-    border-radius: 8px;
-}
-.head-image.thejan {
-    background-image: url('../images/image1.jpg');
 
+main {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+
+.contact-details {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Items start from the left */
+    margin-bottom: 40px;
+    padding: 40px;
+    border-top: none;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Apply box shadow */
+}
+
+.head-image {
+    width: 150px; /* Adjust size of the image */
+    height: 150px; /* Adjust size of the image */
+    border-radius: 5%; /* Make the image round */
+    background-size: cover;
+    background-position: center;
+    margin-right: 30px; /* Space between image and text */
+}
+
+/* Individual styles for each person's image */
+.head-image.thejan {
+    background-image: url('../images/image1.jpg'); /* Replace with actual image path */
 }
 
 .head-image.kabilashika {
-    background-image: url('../images/image2.jpg');
-
+    background-image: url('../images/image2.jpg'); /* Replace with actual image path */
 }
 
 .head-image.janani {
-    background-image: url('../images/image3.jpg');
-
+    background-image: url('../images/image3.jpg'); /* Replace with actual image path */
 }
 
 .head-image.amila {
-    background-image: url('../images/image5.png');
+    background-image: url('../images/image5.png'); /* Replace with actual image path */
 }
 
 .head-image.ama {
-    background-image: url('../images/image4.png');
+    background-image: url('../images/image4.png'); /* Replace with actual image path */
 }
 
 .head-image.malith {
-    background-image: url('../images/image6.png');
+    background-image: url('../images/image6.png'); /* Replace with actual image path */
 }
+
 .contact-info {
-    padding-left: 20px;
+    flex: 1; /* Take remaining space */
 }
-.table {
-    width: 100%;
-    margin-bottom: 20px;
+
+.contact-info h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
 }
+
 .contact-info p {
-    margin: 0;
+    font-size: 16px;
+    margin-bottom: 8px;
 }
 
 footer {
@@ -120,3 +138,9 @@ footer {
     bottom: 0;
     width: 100%;
 }
+
+footer p {
+    margin: 0;
+}
+
+

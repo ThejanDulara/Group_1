@@ -3,115 +3,102 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TJK Library - Heads</title>
-    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="../css/jquery-ui.css">
-    <link rel="stylesheet" type="text/css" href="../css/mystyles.css">
+    <title>TJK Library - Contact Us</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'CSS/contact.css' %}">
 </head>
 <body>
-<header class="welcome-header">
-    <div style="margin-top: -20px" class="container-fluid">
-        <div class="row backcolorblack"></div>
-        <div class="row backcolorfoot div_head">
-            <br class="br_head">
-            <p class="p_head">TJK LIBRARY AND DOCUMENTATION SERVICES BOARD</p>
-        </div>
-    </div>
-    <center><h1>TJK LIBRARY</h1></center>
-    <div class="container">
-        <div class="row">
-            <!-- heads page start -->
-            <div class="col-md-12">
-                <!-- breadcrumb start -->
-               <nav>
-                <ul>
-                    <li><a href="{% url 'home' %}">Home</a></li>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Services</a></li>
-                    <li><a href="#">Catalog</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-               </nav>
-                <!-- breadcrumb end -->
-                <h3 class="fontheading3">HEADS OF DIVISIONS</h3>
-                <hr>
-                <hr>
-
-                <!-- Table to organize heads of divisions -->
-                <table class="table table-borderless">
-                    <tbody>
-                        <tr>
-                            <td class="head-details">
-                                <div class="head-image thejan"></div>
-                                <div class="contact-info">
-                                    <p class="contactshead">Mr. Thejan Dulara<br>Head - Acquisitions Division</p>
-                                    <p class="contacts">T.P.: +94 11 1234567<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: +94 71 1234567<br>Fax: +94 11 1234568<br>thejangammanpila@mail.tjklib.lk</p>
-                                </div>
-                                <hr>
-                            </td>
-                            <td class="head-details">
-                                <div class="head-image kabilashika"></div>
-                                <div class="contact-info">
-                                    <p class="contactshead">Miss. Kabilashika Thiyagarajah<br>Head - Reader Services Division</p>
-                                    <p class="contacts">T.P.: +94 11 2345678<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: +94 71 2345678<br>Fax: +94 11 2345679<br>thiyagarajahkabilashika@mail.tjklib.lk</p>
-                                </div>
-                                <hr>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="head-details">
-                                <div class="head-image janani"></div>
-                                <div class="contact-info">
-                                    <p class="contactshead">Miss. Janani Halwala<br>Head - Bibliographic Control Division</p>
-                                    <p class="contacts">T.P.: +94 11 2345678<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: +94 71 2345678<br>Fax: +94 11 2345679<br>halwalajanani@mail.tjklib.lk</p>
-                                </div>
-                                <hr>
-                            </td>
-                            <td class="head-details">
-                                <div class="head-image amila"></div>
-                                <div class="contact-info">
-                                    <p class="contactshead">Mr. Amila Wijesinghe<br>Head - Reader Services Division</p>
-                                    <p class="contacts">T.P.: +94 11 3456789<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: +94 71 3456789<br>Fax: +94 11 3456790<br>wijesingheamila@mail.tjklib.lk</p>
-                                </div>
-                                <hr>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="head-details">
-                                <div class="head-image ama"></div>
-                                <div class="contact-info">
-                                    <p class="contactshead">Miss. Ama Silva<br>Head - Library Research Division</p>
-                                    <p class="contacts">T.P.: +94 11 3456789<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: +94 71 3456789<br>Fax: +94 11 3456790<br>silvaama@mail.tjklib.lk</p>
-                                </div>
-                                <hr>
-                            </td>
-                            <td class="head-details">
-                                <div class="head-image malith"></div>
-                                <div class="contact-info">
-                                    <p class="contactshead">Ms. Malith Aravinda<br>Head - Education & Training Division</p>
-                                    <p class="contacts">T.P.: +94 11 3456789<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: +94 71 3456789<br>Fax: +94 11 3456790<br>aravindamalith@mail.tjklib.lk</p>
-                                </div>
-                                <hr>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-
-            </div>
-            <!-- heads_of_divisions page end -->
-
-            <!-- side_bar start -->
-            <div class="col-md-4">
-                <br><br><br><br><br><br>
-            </div>
-            <!-- side_bar end -->
-        </div>
+<header class="header">
+    <div class="header-content">
+        <h1>TJK Library</h1>
+        <p>Contact Us</p>
+        <nav>
+            <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'about us' %}">About Us</a></li>
+                <li><a href="{% url 'services' %}">Services</a></li>
+                <li><a href="{% url 'catalogue' %}">Catalogue</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="{% url 'login' %}">Login</a></li>
+            </ul>
+        </nav>
     </div>
 </header>
+<main>
+    <div class="contact-details">
+        <div class="head-image thejan"></div>
+        <div class="contact-info">
+            <h2><span class="section-icon">👥</span> Mr. Thejan Dulara</h2>
+            <p>Head - Acquisitions Division</p>
+            <p>T.P.: +94 11 1234567</p>
+            <p>T.P.: +94 71 1234567</p>
+            <p>Fax: +94 11 1234568</p>
+            <p>Email: thejangammanpila@mail.tjklib.lk</p>
+        </div>
+    </div>
+
+    <div class="contact-details">
+        <div class="head-image kabilashika"></div>
+        <div class="contact-info">
+            <h2><span class="section-icon">👥</span> Miss. Kabilashika Thiyagarajah</h2>
+            <p>Head - Reader Services Division</p>
+            <p>T.P.: +94 11 2345678</p>
+            <p>T.P.: +94 71 2345678</p>
+            <p>Fax: +94 11 2345679</p>
+            <p>Email: thiyagarajahkabilashika@mail.tjklib.lk</p>
+        </div>
+    </div>
+
+    <div class="contact-details">
+        <div class="head-image janani"></div>
+        <div class="contact-info">
+            <h2><span class="section-icon">👥</span> Miss. Janani Halwala</h2>
+            <p>Head - Bibliographic Control Division</p>
+            <p>T.P.: +94 11 2345678</p>
+            <p>T.P.: +94 71 2345678</p>
+            <p>Fax: +94 11 2345679</p>
+            <p>Email: halwalajanani@mail.tjklib.lk</p>
+        </div>
+    </div>
+
+    <div class="contact-details">
+        <div class="head-image amila"></div>
+        <div class="contact-info">
+            <h2><span class="section-icon">👥</span> Mr. Amila Wijesinghe</h2>
+            <p>Head - Library Technology and Systems Division</p>
+            <p>T.P.: +94 11 3456789</p>
+            <p>T.P.: +94 71 3456789</p>
+            <p>Fax: +94 11 3456790</p>
+            <p>Email: wijesingheamila@mail.tjklib.lk</p>
+        </div>
+    </div>
+
+    <div class="contact-details">
+        <div class="head-image ama"></div>
+        <div class="contact-info">
+            <h2><span class="section-icon">👥</span> Miss. Ama Silva</h2>
+            <p>Head - Library Research Division</p>
+            <p>T.P.: +94 11 3456789</p>
+            <p>T.P.: +94 71 3456789</p>
+            <p>Fax: +94 11 3456790</p>
+            <p>Email: silvaama@mail.tjklib.lk</p>
+        </div>
+    </div>
+
+    <div class="contact-details">
+        <div class="head-image malith"></div>
+        <div class="contact-info">
+            <h2><span class="section-icon">👥</span> Ms. Malith Aravinda</h2>
+            <p>Head - Education and Training Division</p>
+            <p>T.P.: +94 11 3456789</p>
+            <p>T.P.: +94 71 3456789</p>
+            <p>Fax: +94 11 3456790</p>
+            <p>Email: aravindamalith@mail.tjklib.lk</p>
+        </div>
+    </div>
+</main>
+<footer>
+    <p>&copy; 2024 TJK Library. All rights reserved.</p>
+</footer>
 </body>
- <footer>
-        <p>&copy; 2024 TJK Library. All rights reserved.</p>
- </footer>
 </html>
