@@ -134,6 +134,11 @@
             border-radius: 5px;
         }
 
+        .book-item a {
+            text-decoration: none;
+            color: #2c3e50;
+        }
+
         .book-item p {
             margin: 5px 0;
         }
@@ -183,12 +188,12 @@
                 {% if books %}
                     {% for book in books %}
                         <div class="book-item">
-                            <p><strong>Name:</strong> {{ book.name }}</p>
-                            <p><strong>Author:</strong> {{ book.author }}</p>
-                            <p><strong>Category:</strong> {{ book.category }}</p>
-                            <p><strong>Rack Number:</strong> {{ book.rack_number }}</p>
-                            <p><strong>Quantity:</strong> {{ book.quantity }}</p>
-                            <p><strong>Description:</strong> {{ book.description }}</p>
+                            <a href="{% url 'book_profile' book.id %}">
+                                <p><strong>Name:</strong> {{ book.name }}</p>
+                                <p><strong>Author:</strong> {{ book.author }}</p>
+                                <p><strong>Category:</strong> {{ book.category }}</p>
+                                <p><strong>Description:</strong> {{ book.description }}</p>
+                            </a>
                         </div>
                     {% endfor %}
                 {% else %}

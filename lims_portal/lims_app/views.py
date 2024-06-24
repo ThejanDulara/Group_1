@@ -1,5 +1,5 @@
 from django.db.models import Q
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .forms import AddBookForm
 from .forms import CreateUserForm, LoginForm
 from django.contrib.auth.models import auth
@@ -122,3 +122,7 @@ def search_books(request):
         books = AddBook.objects.none()
 
     return render(request, 'lims_app/user_page.html', {'books': books, 'query': query, 'search_by': search_by})
+
+def book_profile(request, id):
+    book = get_object_or_404(AddBook, id=id)
+    return render(request, 'lims_app/book_profile.html', {'book': book})

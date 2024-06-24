@@ -17,6 +17,7 @@ urlpatterns = [
     path('services/', views.services, name='services'),
     path('select-redirect/', views.select_redirect, name='select_redirect'),
     path('search-books/', views.search_books, name='search_books'),
+    path('book/<int:id>/', views.book_profile, name='book_profile')
 ]
 
 if settings.DEBUG:
