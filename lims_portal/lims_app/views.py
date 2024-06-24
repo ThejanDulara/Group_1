@@ -84,8 +84,7 @@ def signup(request):
 def user_logout(request):
     auth.logout(request)
     return redirect("home")
-
-
+  
 @login_required(login_url="login")
 def select_redirect(request):
     if not request.user.is_superuser:
@@ -97,3 +96,7 @@ def select_redirect(request):
             return redirect(selected_page)
 
     return render(request, 'lims_app/select_redirect.html')
+  
+ def services(request):
+    return render(request, 'lims_app/services.html')
+

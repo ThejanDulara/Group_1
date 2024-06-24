@@ -12,6 +12,7 @@ urlpatterns = [
     path('contact/', views.contact, name='contact'),
     path('about us/', views.about_us, name='about us'),
     path('userlogout/', views.user_logout, name='userlogout'),
+    path('services/', views.services, name='services'),
     path('select-redirect/', views.select_redirect, name='select_redirect'),
 ]
 
