@@ -37,7 +37,7 @@ body {
 .user-photo {
     width: 150px; /* Increased width */
     height: 150px; /* Increased height */
-    background-image: url('../images/image1.jpg'); /* Added background image here */
+    background-image: url('../images/logo.jpg'); /* Added background image here */
     background-size: cover;
     background-position: center;
     border-radius: 50%;
