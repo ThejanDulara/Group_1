@@ -97,6 +97,6 @@ def select_redirect(request):
 
     return render(request, 'lims_app/select_redirect.html')
   
- def services(request):
+def services(request):
     return render(request, 'lims_app/services.html')
 

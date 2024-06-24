@@ -19,7 +19,5 @@ function openTab(evt, tabName) {
     evt.currentTarget.className += " active";
 }
 
-// Set the default active tab
-document.addEventListener('DOMContentLoaded', (event) => {
-    document.getElementsByClassName('tablinks')[0].click();
-});
+// Open the default tab (if needed, you can add this to automatically open a tab on page load)
+document.getElementsByClassName("tablinks")[0].click();
