@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ book.name }} - Book Profile</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/book_profile.css' %}">
+</head>
+<body>
+    <header>
+        <h1>TJK Library</h1>
+        <nav>
+            <ul>
+                <li><a href="{#}">Home</a></li>
+                <li><a href="{#}">Categories</a></li>
+                <li><a href="{#}">My Reservations</a></li>
+                <li><a href="{#}">History</a></li>
+                <li><a href="{#}">Recommendations</a></li>
+                <li><a href="{#}">Contact</a></li>
+                <li><a href="{% url 'userlogout' %}">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="book-profile-container">
+        <div class="book-details">
+            <h2>{{ book.name }}</h2>
+            <p><strong>Author:</strong> {{ book.author }}</p>
+            <p><strong>Category:</strong> {{ book.category }}</p>
+            <p><strong>Rack Number:</strong> {{ book.rack_number }}</p>
+            <p><strong>Quantity:</strong> {{ book.quantity }}</p>
+            <p><strong>Description:</strong> {{ book.description }}</p>
+        </div>
+        <div class="book-image">
+            {% if book.image %}
+                <img src="{{ book.image.url }}" alt="{{ book.name }}">
+            {% else %}
+                <img src="{% static 'images/default_book_image.jpg' %}" alt="No image available">
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>
