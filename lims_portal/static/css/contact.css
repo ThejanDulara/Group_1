@@ -65,54 +65,73 @@ main {
     max-width: 1200px;
     margin: 40px auto;
     padding: 0 20px;
-    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
+.contact-details-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1200px; /* Ensure it matches main's max-width */
+    margin: 0 auto;
+    padding: 0 20px;
+}
 
 .contact-details {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start; /* Items start from the left */
+    width: calc(50% - 20px); /* Adjusted width to fit two boxes per row with margin */
     margin-bottom: 40px;
-    padding: 40px;
-    border-top: none;
+    padding: 20px;
     background-color: rgba(255, 255, 255, 0.8);
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Apply box shadow */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+}
+
+.left {
+    flex-basis: calc(50% - 20px); /* Adjust width for left side */
+    margin-right: 20px; /* Space between left and right sections */
+}
+
+.right {
+    flex-basis: calc(50% - 20px); /* Adjust width for right side */
+    margin-left: 20px; /* Space between left and right sections */
 }
 
 .head-image {
-    width: 150px; /* Adjust size of the image */
-    height: 150px; /* Adjust size of the image */
-    border-radius: 5%; /* Make the image round */
+    width: 150px;
+    height: 150px;
+    border-radius: 10%; /* Make the image completely round */
     background-size: cover;
     background-position: center;
-    margin-right: 30px; /* Space between image and text */
+    margin-right: 20px; /* Space between image and text */
+    align-items: center;
 }
 
 /* Individual styles for each person's image */
 .head-image.thejan {
-    background-image: url('../images/image1.jpg'); /* Replace with actual image path */
+    background-image: url('../images/image1.jpg');
 }
 
 .head-image.kabilashika {
-    background-image: url('../images/image2.jpg'); /* Replace with actual image path */
+    background-image: url('../images/image2.jpg');
 }
 
 .head-image.janani {
-    background-image: url('../images/image3.jpg'); /* Replace with actual image path */
+    background-image: url('../images/image3.jpg');
 }
 
 .head-image.amila {
-    background-image: url('../images/image5.png'); /* Replace with actual image path */
+    background-image: url('../images/image5.png');
 }
 
 .head-image.ama {
-    background-image: url('../images/image4.png'); /* Replace with actual image path */
+    background-image: url('../images/image4.png');
 }
 
 .head-image.malith {
-    background-image: url('../images/image6.png'); /* Replace with actual image path */
+    background-image: url('../images/image6.png');
 }
 
 .contact-info {
@@ -138,9 +157,3 @@ footer {
     bottom: 0;
     width: 100%;
 }
-
-footer p {
-    margin: 0;
-}
-
-
