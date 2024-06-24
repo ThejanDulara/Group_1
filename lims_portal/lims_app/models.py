@@ -9,6 +9,7 @@ class AddBook(models.Model):
     category = models.CharField(max_length=255)
     quantity = models.IntegerField()
     description = models.TextField()
+    image = models.ImageField(upload_to='book_images/', null=True, blank=True)
 
 
 class profile(models.Model):

@@ -1,15 +1,17 @@
+from django.db.models import Q
 from django.shortcuts import render, redirect
 from .forms import AddBookForm
 from .forms import CreateUserForm, LoginForm
 from django.contrib.auth.models import auth
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from .models import AddBook
 
 
 @login_required(login_url="login")
 def add_books(request):
     if request.method == 'POST':
-        form = AddBookForm(request.POST)
+        form = AddBookForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
             return redirect('add_books')  # Redirect to the same page after saving
@@ -96,7 +98,27 @@ def select_redirect(request):
             return redirect(selected_page)
 
     return render(request, 'lims_app/select_redirect.html')
-  
+
 def services(request):
     return render(request, 'lims_app/services.html')
 
+@login_required(login_url="login")
+def search_books(request):
+    query = request.GET.get('q')
+    search_by = request.GET.get('search_by', 'all')
+
+    if query:
+        if search_by == 'name':
+            books = AddBook.objects.filter(name__icontains=query)
+        elif search_by == 'author':
+            books = AddBook.objects.filter(author__icontains=query)
+        elif search_by == 'category':
+            books = AddBook.objects.filter(category__icontains=query)
+        else:
+            books = AddBook.objects.filter(
+                Q(name__icontains=query) | Q(author__icontains=query) | Q(category__icontains=query)
+            )
+    else:
+        books = AddBook.objects.none()
+
+    return render(request, 'lims_app/user_page.html', {'books': books, 'query': query, 'search_by': search_by})

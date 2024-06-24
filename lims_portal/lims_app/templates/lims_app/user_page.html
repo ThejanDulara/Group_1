@@ -66,92 +66,6 @@
             margin-bottom: 20px;
         }
 
-        .features {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
-        }
-
-        .feature {
-            background-color: #e0e0e0;
-            padding: 15px;
-            margin: 10px;
-            border-radius: 5px;
-            width: 200px;
-            text-align: center;
-            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-            transition: background-color 0.3s, transform 0.3s;
-            cursor: pointer;
-        }
-
-        .feature:hover {
-            background-color: #a9dfbf;
-            transform: translateY(-5px);
-        }
-
-        .feature a {
-            text-decoration: none;
-            color: #2c3e50;
-            font-weight: bold;
-            display: block;
-            padding: 10px 0;
-        }
-
-        .logout {
-            text-align: center;
-            margin: 20px 0;
-        }
-
-        .logout a {
-            text-decoration: none;
-            color: white;
-            background-color: red;
-            padding: 10px 20px;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-        }
-
-        .logout a:hover {
-            background-color: darkred;
-        }
-
-        .feature-icon {
-            font-size: 2em;
-            margin-bottom: 10px;
-            color: #1abc9c;
-        }
-
-        .stats, .recent-activity, .featured-books {
-            background-color: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
-        }
-
-        .section-title {
-            font-size: 1.5em;
-            color: #2c3e50;
-            margin-bottom: 10px;
-            border-bottom: 2px solid #2c3e50;
-            padding-bottom: 5px;
-        }
-
-        .stats-item, .activity-item, .book-item {
-            margin-bottom: 10px;
-            padding: 10px;
-            border-bottom: 1px solid #e0e0e0;
-        }
-
-        .stats-item:last-child, .activity-item:last-child, .book-item:last-child {
-            border-bottom: none;
-        }
-
-        .stats-item span, .activity-item span, .book-item span {
-            font-weight: bold;
-            color: #1abc9c;
-        }
-
         .search-bar-component {
             text-align: center;
             margin: 20px 0;
@@ -208,6 +122,21 @@
             background-color: #ccc;
             margin: 0 10px;
         }
+
+        .search-results {
+            margin: 20px 0;
+        }
+
+        .book-item {
+            background-color: #e0e0e0;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+
+        .book-item p {
+            margin: 5px 0;
+        }
     </style>
 </head>
 <body>
@@ -236,7 +165,7 @@
                     <div class="search-facet">
                         <label class="search-facet-selector">
                             <span aria-hidden="true" class="search-facet-value">Search By</span>
-                            <select aria-label="Search by">
+                            <select name="search_by" aria-label="Search by">
                                 <option value="all">All</option>
                                 <option value="name">Name</option>
                                 <option value="author">Author</option>
@@ -244,50 +173,27 @@
                             </select>
                         </label>
                     </div>
-                    <form class="search-bar-input" action="/search" method="get">
+                    <form class="search-bar-input" action="{% url 'search_books' %}" method="get">
                         <input type="text" name="q" placeholder="Search..." aria-label="Search" autocomplete="off">
                         <input type="submit" value="Search" class="search-bar-submit" aria-label="Search submit">
                     </form>
                 </div>
             </div>
-            <div class="stats">
-                <h3 class="section-title">Your Statistics</h3>
-                <div class="stats-item">
-                    <p>Total Books Borrowed: <span>23</span></p>
-                </div>
-                <div class="stats-item">
-                    <p>Books Currently Borrowed: <span>3</span></p>
-                </div>
-                <div class="stats-item">
-                    <p>Books Reserved: <span>2</span></p>
-                </div>
-                <div class="stats-item">
-                    <p>Fines Due: <span>$0.00</span></p>
-                </div>
-            </div>
-            <div class="recent-activity">
-                <h3 class="section-title">Recent Activity</h3>
-                <div class="activity-item">
-                    <p>You borrowed <span>"The Great Gatsby"</span> on <span>June 10, 2024</span>.</p>
-                </div>
-                <div class="activity-item">
-                    <p>You reserved <span>"1984"</span> on <span>June 12, 2024</span>.</p>
-                </div>
-                <div class="activity-item">
-                    <p>You returned <span>"To Kill a Mockingbird"</span> on <span>June 5, 2024</span>.</p>
-                </div>
-            </div>
-            <div class="featured-books">
-                <h3 class="section-title">Featured Books</h3>
-                <div class="book-item">
-                    <p><span>"Moby Dick"</span> by <span>Herman Melville</span></p>
-                </div>
-                <div class="book-item">
-                    <p><span>"Pride and Prejudice"</span> by <span>Jane Austen</span></p>
-                </div>
-                <div class="book-item">
-                    <p><span>"War and Peace"</span> by <span>Leo Tolstoy</span></p>
-                </div>
+            <div class="search-results">
+                {% if books %}
+                    {% for book in books %}
+                        <div class="book-item">
+                            <p><strong>Name:</strong> {{ book.name }}</p>
+                            <p><strong>Author:</strong> {{ book.author }}</p>
+                            <p><strong>Category:</strong> {{ book.category }}</p>
+                            <p><strong>Rack Number:</strong> {{ book.rack_number }}</p>
+                            <p><strong>Quantity:</strong> {{ book.quantity }}</p>
+                            <p><strong>Description:</strong> {{ book.description }}</p>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <p>No books found matching your search criteria.</p>
+                {% endif %}
             </div>
         </div>
     </div>

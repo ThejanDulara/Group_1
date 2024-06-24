@@ -1,3 +1,5 @@
+from django.conf import settings
+from django.conf.urls.static import static
 from django.urls import path
 from . import views, admin
 
@@ -14,5 +16,8 @@ urlpatterns = [
     path('userlogout/', views.user_logout, name='userlogout'),
     path('services/', views.services, name='services'),
     path('select-redirect/', views.select_redirect, name='select_redirect'),
+    path('search-books/', views.search_books, name='search_books'),
 ]
 
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
