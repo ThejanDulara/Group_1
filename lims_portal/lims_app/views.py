@@ -125,7 +125,7 @@ def search_books(request):
     else:
         books = list(AddBook.objects.all())
         random.shuffle(books)
-        books = books[:10]
+        books = books[:5]
 
     return render(request, 'lims_app/user_page.html', {'books': books, 'query': query, 'search_by': search_by})
 
