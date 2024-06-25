@@ -3,59 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Library Home Page</title>
+    <title>Library User Page</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'CSS/landing_styles.css' %}">
     <style>
         body {
             font-family: Arial, sans-serif;
             background-size: cover;
+            background-color: #c2b48a;
             color: #333;
             margin: 0;
             padding: 0;
-        }
-
-        header {
-            background-color: #333;
-            padding: 20px;
-        }
-
-        header h1 {
-            color: white;
-            margin: 0;
-        }
-
-        nav ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            justify-content: space-around;
-        }
-
-        nav ul li {
-            margin: 0 10px;
-        }
-
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
+            background-image: none
         }
 
         .container {
             width: 90%;
-            margin: 0 auto;
+            margin: 20px auto;
             padding: 20px 0;
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.7);
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
-        h1, h2 {
-            color: #2c3e50;
-            text-align: center;
-            padding: 20px 0;
-            margin: 0;
-        }
 
         .dashboard {
             padding: 20px;
@@ -64,6 +34,7 @@
         .greeting {
             text-align: center;
             margin-bottom: 20px;
+            margin-top: 10px;
         }
 
         .search-bar-component {
@@ -94,6 +65,10 @@
             padding: 10px;
             border-radius: 5px;
             border: 1px solid #ccc;
+            width: 400px;
+        }
+
+        .search-facet-selector select {
             width: 150px;
         }
 
@@ -110,6 +85,7 @@
             border-radius: 5px;
             cursor: pointer;
             transition: background-color 0.3s;
+
         }
 
         .search-bar-input input[type="submit"]:hover {
@@ -142,35 +118,70 @@
         .book-item p {
             margin: 5px 0;
         }
+        .header-text h1, .header-text h2 {
+            color: white;
+        }
+
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            flex: 1;
+        }
+
+        footer {
+            padding: 20px;
+            text-align: center;
+            margin-top: auto;
+        }
     </style>
 </head>
 <body>
-    <header>
-        <h1>TJK Library</h1>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo-container">
+                <img src="{% static 'images/logo.jpg' %}" alt="Library Logo" class="logo">
+                <h1>TJK Library</h1>
+            </div>
+            <div class="header-text">
+                <h1>Welcome to TJK Library, {{ user.username }} !</h1>
+                <h2><em>Where Knowledge Blooms and Minds Flourish with Every Turn of the Page.</em></h2>
+            </div>
+            <img src="{% static 'images/header.png' %}" alt="Decoration" class="decoration">
+        </div>
         <nav>
             <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Categories</a></li>
-                <li><a href="#">My Reservations</a></li>
-                <li><a href="#">History</a></li>
-                <li><a href="#">Recommendations</a></li>
-                <li><a href="#">Contact</a></li>
-                <li><a href="{% url 'userlogout' %}">Logout</a></li>
+                <li><a href="{% url 'home' %}" class="nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}">Home</a></li>
+                <li><a href="#" class="nav-link">Categories</a></li>
+                <li><a href="#" class="nav-link">My Reservations</a></li>
+                <li><a href="#" class="nav-link">History</a></li>
+                <li><a href="#" class="nav-link">Recommendations</a></li>
+                <li><a href="{% url 'contact' %}" class="nav-link {% if request.resolver_match.url_name == 'contact' %}active{% endif %}">Contact</a></li>
+                <li><a href="{% url 'userlogout' %}" class="nav-link {% if request.resolver_match.url_name == 'userlogout' %}active{% endif %}">Logout</a></li>
             </ul>
         </nav>
     </header>
-    <div class="container">
+    <!-- Main Content -->
+        <div class="container">
         <div class="dashboard">
             <div class="greeting">
-                <h2>Welcome, [User's Name]!</h2>
-                <p>What would you like to do today?</p>
+                <h2>Which book would you like to read today?</h2>
             </div>
             <div class="search-bar-component">
                 <div class="search-bar">
                     <div class="search-facet">
                         <label class="search-facet-selector">
                             <span aria-hidden="true" class="search-facet-value">Search By</span>
-                            <select name="search_by" aria-label="Search by">
+                            <select name="search_by" aria-label="Search by" form="search-form">
                                 <option value="all">All</option>
                                 <option value="name">Name</option>
                                 <option value="author">Author</option>
@@ -178,14 +189,31 @@
                             </select>
                         </label>
                     </div>
-                    <form class="search-bar-input" action="{% url 'search_books' %}" method="get">
+                    <form id="search-form" class="search-bar-input" action="{% url 'search_books' %}" method="get">
                         <input type="text" name="q" placeholder="Search..." aria-label="Search" autocomplete="off">
                         <input type="submit" value="Search" class="search-bar-submit" aria-label="Search submit">
                     </form>
                 </div>
             </div>
             <div class="search-results">
-                {% if books %}
+                {% if query %}
+                    <h3>Search Results for "{{ query }}"</h3>
+                    {% if books %}
+                        {% for book in books %}
+                            <div class="book-item">
+                                <a href="{% url 'book_profile' book.id %}">
+                                    <p><strong>Name:</strong> {{ book.name }}</p>
+                                    <p><strong>Author:</strong> {{ book.author }}</p>
+                                    <p><strong>Category:</strong> {{ book.category }}</p>
+                                    <p><strong>Description:</strong> {{ book.description }}</p>
+                                </a>
+                            </div>
+                        {% endfor %}
+                    {% else %}
+                        <p>No books found matching your search criteria.</p>
+                    {% endif %}
+                {% else %}
+                    <h3>Recommended Books</h3>
                     {% for book in books %}
                         <div class="book-item">
                             <a href="{% url 'book_profile' book.id %}">
@@ -196,11 +224,33 @@
                             </a>
                         </div>
                     {% endfor %}
-                {% else %}
-                    <p>No books found matching your search criteria.</p>
                 {% endif %}
             </div>
         </div>
     </div>
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-left">
+                <h3>Contact Us</h3>
+                <p>Address: 123 Library St, Knowledge City</p>
+                <p>Phone: (123) 456-7890</p>
+                <p>Email: info@tjklibrary.com</p>
+                <h3>About Us</h3>
+                <p>At TJK Library, we aim to foster a love of reading and learning in the community through our extensive collection and engaging programs.</p>
+            </div>
+            <div class="footer-middle">
+                <img src="{% static 'images/logo.jpg' %}" alt="Footer Icon">
+            </div>
+            <div class="footer-right">
+                <h3>Connect</h3>
+                <a href="#" target="_blank"><img src="{% static 'images/facebook.webp' %}" alt="Facebook">Facebook</a>
+                <a href="#" target="_blank"><img src="{% static 'images/youtube.png' %}" alt="YouTube">YouTube</a>
+                <a href="#" target="_blank"><img src="{% static 'images/twitter.png' %}" alt="Twitter">Twitter</a>
+                <a href="#" target="_blank"><img src="{% static 'images/linkedin.png' %}" alt="LinkedIn">LinkedIn</a>
+            </div>
+        </div>
+        <p>&copy; 2024 TJK Library. All Rights Reserved.</p>
+    </footer>
 </body>
 </html>
