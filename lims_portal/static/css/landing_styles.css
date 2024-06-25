@@ -2,7 +2,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-image: url('../images/background.jpeg'); /* Path to your background image */
+    background-image: url('../images/background_1.png'); /* Path to your background image */
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
@@ -220,6 +220,8 @@ footer {
     color: #fff;
     padding: 20px;
     text-align: center;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .footer-content {
@@ -273,11 +275,15 @@ footer {
 .footer-right a {
     display: block;
     margin: 10px 0;
+    color: #fff;
+    text-decoration: none;
 }
 
 .footer-right a img {
     width: 24px;
     height: 24px;
+    margin-right: 10px; /* Adds 10px space between the image and text */
+    vertical-align: middle; /* Ensures the image is vertically aligned with the text */
 }
 
 footer p {
