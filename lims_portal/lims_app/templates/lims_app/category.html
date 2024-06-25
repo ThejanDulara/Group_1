@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Library Categories</title>
+    <title>Library Catalogue</title>
     {% load static %}
-    <link rel="stylesheet" href="{% static 'CSS/category.css' %}">
+    <link rel="stylesheet" href="{% static 'CSS/catalogue.css' %}">
 </head>
 <body>
-    <header class="header">
+     <header class="header">
         <div class="header-content">
             <div class="logo-container">
                 <img src="{% static 'images/logo.jpg' %}" alt="Library Logo" class="logo">
@@ -22,14 +22,13 @@
         </div>
         <nav>
             <ul>
-                <li><a href="{% url 'user_page' %}" class="nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}">Home</a></li>
-                <li><a href="#" class="nav-link">Categories</a></li>
-                <li><a href="#" class="nav-link">My Reservations</a></li>
+                <li><a href="{% url 'user_page' %}" class="nav-link {% if request.resolver_match.url_name == 'user_page' %}active{% endif %}">Home</a></li>
+                <li><a href="{% url 'category' %}" class="nav-link {% if request.resolver_match.url_name == 'category' %}active{% endif %}">Categories</a></li>
+                <li><a href="{% url 'reservation' %}" class="nav-link {% if request.resolver_match.url_name == 'reservation' %}active{% endif %}">My Reservations</a></li>
                 <li><a href="{% url 'home' %}" class="nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}">Logout</a></li>
             </ul>
         </nav>
     </header>
-
     <div class="container">
         <div class="dashboard">
             <h2>Categories</h2>
@@ -46,7 +45,6 @@
             </div>
         </div>
     </div>
-
     <footer>
         <div class="footer-content">
             <div class="footer-left">
