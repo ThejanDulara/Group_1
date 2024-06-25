@@ -1,35 +1,273 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Page</title>
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'CSS/Login.css' %}">
-</head>
-<body>
-    <div class="login-container">
-        <h2>Login</h2>
-        <form action="{% url 'login' %}" method="post">
-            {% csrf_token %}
-            <div class="form-group">
-                <label for="username">Username</label>
-                <input type="text" id="username" name="username" required>
-            </div>
-            <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password" required>
-            </div>
-            <div class="remember">
-                <input type="checkbox" id="remember-me">
-                <label for="remember-me" class="remember-me" id="remember-me-label">Remember Me</label>
-            </div>
-            <div class="button-group">
-                <button type="submit" class="btn login-btn">Login</button>
-                <a href="#" class="forgot-password">Forgot Password?</a>
-            </div>
-        </form>
-        <p class="register-link">Don't have an account? <a href="{% url 'signup' %}">Register here</a></p>
-    </div>
-</body>
-</html>
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('../images/background_1.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.header {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    padding: 20px 0;
+    width: 100%;
+    box-sizing: border-box;
+    /* Remove fixed positioning */
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+}
+
+.logo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    left: 20px;
+}
+
+.logo {
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    margin-bottom: 10px;
+}
+
+.logo-container h1 {
+    margin: 0;
+    font-size: 14px;
+    text-align: center;
+}
+
+.header-text {
+    text-align: center;
+    flex-grow: 1;
+}
+
+.header-text h1 {
+    font-size: 32px;
+    margin: 10px 0 0;
+}
+
+.header-text h2 {
+    font-size: 20px;
+    margin: 5px 0 20px;
+    font-style: italic;
+    color: #fff;
+}
+
+.decoration {
+    width: 140px;
+    height: 140px;
+    position: absolute;
+    right: 20px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    position: relative;
+}
+
+nav ul li a.active::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: #007bff;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+.login-container {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+    margin: 80px auto 60px auto; /* Further reduced margin-top */
+    z-index: 500;
+    position: relative;
+}
+
+h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.form-group input {
+    width: calc(100% - 20px);
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.remember {
+    display: flex;
+    align-items: center;
+}
+
+.remember-me {
+    margin-left: 5px;
+}
+
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.btn {
+    padding: 10px 15px;
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+.forgot-password {
+    font-size: 14px;
+    color: #007bff;
+    text-decoration: none;
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+}
+
+.register-link {
+    margin-top: 15px;
+}
+
+.register-link a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+footer {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-left {
+    text-align: left;
+    width: 30%;
+    color: #fff;
+}
+
+.footer-left h3 {
+    margin: 0 0 10px;
+    font-size: 18px;
+}
+
+.footer-left p {
+    margin: 5px 0;
+}
+
+.footer-middle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    text-align: center;
+}
+
+.footer-middle img {
+    width: 180px;
+    height: 180px;
+}
+
+.footer-right {
+    text-align: left;
+    width: 30%;
+    color: #fff;
+}
+
+.footer-right h3 {
+    margin: 0 0 20px;
+    font-size: 18px;
+}
+
+.footer-right a {
+    display: block;
+    margin: 10px 0;
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer-right a img {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px; /* Adds 10px space between the image and text */
+    vertical-align: middle; /* Ensures the image is vertically aligned with the text */
+}
+
+footer p {
+    margin: 20px 0 0;
+    font-size: 14px;
+    color: #ccc;
+}
