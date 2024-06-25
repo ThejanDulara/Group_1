@@ -6,6 +6,7 @@ from django.contrib.auth.models import auth
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from .models import AddBook
+import random
 
 
 @login_required(login_url="login")
@@ -62,7 +63,7 @@ def user_login(request):
                 if user.is_superuser:
                     return redirect('select_redirect')  # Redirect to select redirect view for superusers
                 else:
-                    return redirect("user")  # Redirect normal users to user page
+                    return redirect("user_page")  # Redirect normal users to user page
 
     context = {'loginform': form}
 
@@ -122,9 +123,13 @@ def search_books(request):
                 Q(name__icontains=query) | Q(author__icontains=query) | Q(category__icontains=query)
             )
     else:
-        books = AddBook.objects.none()
+        books = list(AddBook.objects.all())
+        random.shuffle(books)
+        books = books[:10]
 
     return render(request, 'lims_app/user_page.html', {'books': books, 'query': query, 'search_by': search_by})
+
+
 
 def book_profile(request, id):
     book = get_object_or_404(AddBook, id=id)

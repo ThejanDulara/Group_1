@@ -53,12 +53,14 @@ body {
 .header-text h1 {
     font-size: 32px;
     margin: 10px 0 0;
+    color: #fff;
 }
 
 .header-text h2 {
     font-size: 20px;
     margin: 5px 0 20px;
     font-style: italic;
+    color: #fff;
 }
 
 .decoration {

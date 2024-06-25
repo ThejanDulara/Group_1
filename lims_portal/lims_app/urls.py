@@ -10,7 +10,7 @@ urlpatterns = [
     path('login/', views.user_login, name='login'),
     path('staff/', views.Staff, name='Staff'),
     path('catalogue/', views.catalogue, name='catalogue'),
-    path('user/', views.user, name='user'),
+    #path('user/', views.user, name='user'),
     path('contact/', views.contact, name='contact'),
     path('about us/', views.about_us, name='about us'),
     path('userlogout/', views.user_logout, name='userlogout'),
@@ -18,6 +18,7 @@ urlpatterns = [
     path('select-redirect/', views.select_redirect, name='select_redirect'),
     path('search-books/', views.search_books, name='search_books'),
     path('book/<int:id>/', views.book_profile, name='book_profile'),
+    path('user/', views.search_books, name='user_page'),
 ]
 
 if settings.DEBUG:

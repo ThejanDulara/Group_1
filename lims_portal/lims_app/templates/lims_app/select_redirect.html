@@ -15,7 +15,7 @@
         <div class="selection-buttons">
             <form action="{% url 'select_redirect' %}" method="post">
                 {% csrf_token %}
-                <button type="submit" name="selected_page" value="{% url 'user' %}" class="btn user-btn">User Page</button>
+                <button type="submit" name="selected_page" value="{% url 'user_page' %}" class="btn user-btn">User Page</button>
                 <button type="submit" name="selected_page" value="{% url 'Staff' %}" class="btn staff-btn">Staff Page</button>
             </form>
         </div>
