@@ -1,0 +1,234 @@
+        /* Reset some default styles */
+        body, h1, h2, p, input {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body styles */
+        body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        background-image: url('../images/background.jpeg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+        color: #333;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        }
+
+
+        .header {
+            background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+            color: #fff;
+            padding: 20px 0;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+        }
+
+        .logo-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: absolute;
+            left: 20px;
+        }
+
+        .logo {
+            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+            margin-bottom: 10px;
+        }
+
+        .logo-container h1 {
+            margin: 0;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        .header-text {
+            text-align: center;
+            flex-grow: 1;
+        }
+
+        .header-text h1 {
+            font-size: 32px;
+            margin: 10px 0 0;
+        }
+
+        .header-text h2 {
+            font-size: 20px;
+            margin: 5px 0 20px;
+            font-style: italic;
+        }
+
+        .decoration {
+            width: 140px;
+            height: 140px;
+            position: absolute;
+            right: 20px;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+            position: relative;
+        }
+
+        nav ul li a.active::after {
+            content: '';
+            display: block;
+            width: 100%;
+            height: 2px;
+            background-color: #007bff;
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+        }
+
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        /* Main section styles */
+        main {
+            padding: 20px;
+            flex: 1; /* This will push the footer to the bottom */
+
+        }
+
+        .book-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .book-item {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 200px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .book-item img {
+            width: 100%;
+            height: auto;
+        }
+
+        .book-info {
+            padding: 15px;
+        }
+
+        .book-info h2 {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+
+        .book-info p {
+            font-size: 0.9em;
+            color: #555;
+        }
+
+        /* Footer styles */
+        footer {
+            background-color: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .footer-left {
+            text-align: left;
+            width: 30%;
+            color: #fff;
+        }
+
+        .footer-left h3 {
+            margin: 0 0 10px;
+            font-size: 18px;
+        }
+
+        .footer-left p {
+            margin: 5px 0;
+        }
+
+        .footer-middle {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 80%;
+            text-align: center;
+        }
+
+        .footer-middle img {
+            width: 180px;
+            height: 180px;
+        }
+
+        .footer-right {
+            text-align: left;
+            width: 30%;
+            color: #fff;
+        }
+
+        .footer-right h3 {
+            margin: 0 0 20px;
+            font-size: 18px;
+        }
+
+        .footer-right a {
+            display: block;
+            margin: 10px 0;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .footer-right a img {
+            width: 24px;
+            height: 24px;
+            margin-right: 10px; /* Adds 10px space between the image and text */
+            vertical-align: middle; /* Ensures the image is vertically aligned with the text */
+        }
+
+        footer p {
+            margin: 20px 0 0;
+            font-size: 14px;
+            color: #ccc;
+        }
