@@ -1,22 +1,112 @@
 * {
-    padding: 0;
     margin: 0;
+    padding: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
 }
 
 body {
     font-family: Arial, sans-serif;
-    background-image: url('../images/background.jpeg');
+    margin: 0;
+    padding: 0;
+    background-image: url('../images/background.jpeg'); /* Path to your background image */
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
+    color: #333;
+}
+
+.header {
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+    color: #fff;
+    padding: 20px 0;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+}
+
+.logo-container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    height: 100vh;
+    position: absolute;
+    left: 20px;
+}
+
+.logo {
+    border-radius: 50%;
+    width:80px;
+    height: 80px;
+    margin-bottom: 10px;
+}
+
+.logo-container h1 {
     margin: 0;
+    font-size: 14px;
+    text-align: center;
+}
+
+.header-text {
+    text-align: center;
+    flex-grow: 1;
+}
+
+.header-text h1 {
+    font-size: 32px;
+    margin: 10px 0 0;
+}
+
+.header-text h2 {
+    font-size: 20px;
+    margin: 5px 0 20px;
+    font-style: italic;
+}
+
+.decoration {
+    width:140px;
+    height: 140px;
+    position: absolute;
+    right: 20px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    position: relative;
+}
+
+nav ul li a.active::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: #007bff;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
 }
 
 .container {
@@ -26,8 +116,9 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     max-width: 650px;
     margin-bottom: 40px;
+    align: center;
+    margin: 0 auto; /* Center the container horizontally */
 }
-
 .form-title {
     margin-bottom: 20px;
     color: #333;
@@ -149,6 +240,81 @@ body {
 .user-input-box.password-fields .error-message {
     width: 100%;
     padding-left: 52%; /* Adjust to align under the right field */
+}
+
+footer {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-left {
+    text-align: left;
+    width: 30%;
+    color: #fff;
+}
+
+.footer-left h3 {
+    margin: 0 0 10px;
+    font-size: 18px;
+}
+
+.footer-left p {
+    margin: 5px 0;
+}
+
+.footer-middle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    text-align: center;
+}
+
+.footer-middle img {
+    width: 180px;
+    height: 180px;
+}
+
+.footer-right {
+    text-align: left;
+    width: 30%;
+    color: #fff;
+}
+
+.footer-right h3 {
+    margin: 0 0 20px;
+    font-size: 18px;
+}
+
+.footer-right a {
+    display: block;
+    margin: 10px 0;
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer-right a img {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px; /* Adds 10px space between the image and text */
+    vertical-align: middle; /* Ensures the image is vertically aligned with the text */
+}
+
+footer p {
+    margin: 20px 0 0;
+    font-size: 14px;
+    color: #ccc;
 }
 
 @media screen and (max-width: 768px) {
