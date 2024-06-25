@@ -19,6 +19,8 @@ urlpatterns = [
     path('search-books/', views.search_books, name='search_books'),
     path('book/<int:id>/', views.book_profile, name='book_profile'),
     path('user/', views.search_books, name='user_page'),
+    path('category/', views.category, name='category'),
+    path('reservation/', views.reservation, name='reservation'),
 ]
 
 if settings.DEBUG:

@@ -134,3 +134,9 @@ def search_books(request):
 def book_profile(request, id):
     book = get_object_or_404(AddBook, id=id)
     return render(request, 'lims_app/book_profile.html', {'book': book})
+
+def category(request):
+    return render(request, 'lims_app/category.html')
+
+def reservation(request):
+    return render(request, 'lims_app/reservation.html')
