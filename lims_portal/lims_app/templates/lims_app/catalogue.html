@@ -31,61 +31,52 @@
             </ul>
         </nav>
     </header>
-    <main>
-        <section class="book-list">
-            <div class="book-item">
-                <img src="{% static 'images/cover1.jpg' %}" alt="Book Cover">
-                <div class="book-info">
-                    <h2>Book Title 1</h2>
-                    <p>Author: John Doe</p>
-                    <p>Genre: Fiction</p>
+    <!-- Main Content -->
+        <div class="container">
+        <div class="dashboard">
+            <div class="greeting">
+                <h2>Which book would you like to read today?</h2>
+            </div>
+            <div class="search-bar-component">
+                <div class="search-bar">
+                    <div class="search-facet">
+                        <label class="search-facet-selector">
+                            <span aria-hidden="true" class="search-facet-value">Search By</span>
+                            <select name="search_by" aria-label="Search by" form="search-form">
+                                <option value="all">All</option>
+                                <option value="name">Name</option>
+                                <option value="author">Author</option>
+                                <option value="category">Category</option>
+                            </select>
+                        </label>
+                    </div>
+                    <form id="search-form" class="search-bar-input" action="{% url 'search_books' %}" method="get">
+                        <input type="text" name="q" placeholder="Search..." aria-label="Search" autocomplete="off">
+                        <input type="submit" value="Search" class="search-bar-submit" aria-label="Search submit">
+                    </form>
                 </div>
             </div>
-            <div class="book-item">
-                <img src="{% static 'images/cover2.jpg' %}" alt="Book Cover">
-                <div class="book-info">
-                    <h2>Book Title 2</h2>
-                    <p>Author: Jane Smith</p>
-                    <p>Genre: Mystery</p>
-                </div>
+            <div class="search-results">
+                {% if query %}
+                    <h3>Search Results for "{{ query }}"</h3>
+                    {% if books %}
+                        {% for book in books %}
+                            <div class="book-item">
+                                <a href="{% url 'book_profile' book.id %}">
+                                    <p><strong>Name:</strong> {{ book.name }}</p>
+                                    <p><strong>Author:</strong> {{ book.author }}</p>
+                                    <p><strong>Category:</strong> {{ book.category }}</p>
+                                    <p><strong>Description:</strong> {{ book.description }}</p>
+                                </a>
+                            </div>
+                        {% endfor %}
+                    {% else %}
+                        <p>No books found matching your search criteria.</p>
+                    {% endif %}
+                {% endif %}
             </div>
-            <div class="book-item">
-                <img src="cover2.jpg" alt="Book Cover">
-                <div class="book-info">
-                    <h2>Book Title 2</h2>
-                    <p>Author: Jane Smith</p>
-                    <p>Genre: Mystery</p>
-                </div>
-
-            </div>
-            <div class="book-item">
-                <img src="cover2.jpg" alt="Book Cover">
-                <div class="book-info">
-                    <h2>Book Title 2</h2>
-                    <p>Author: Jane Smith</p>
-                    <p>Genre: Mystery</p>
-                </div>
-            </div>
-            <div class="book-item">
-                <img src="cover2.jpg" alt="Book Cover">
-                <div class="book-info">
-                    <h2>Book Title 2</h2>
-                    <p>Author: Jane Smith</p>
-                    <p>Genre: Mystery</p>
-                </div>
-
-            </div>
-            <div class="book-item">
-                <img src="cover2.jpg" alt="Book Cover">
-                <div class="book-info">
-                    <h2>Book Title 2</h2>
-                    <p>Author: Jane Smith</p>
-                    <p>Genre: Mystery</p>
-                </div>
-            </div>
-            <!-- Add more book items as needed -->
-        </section>
-    </main>
+        </div>
+    </div>
     <footer>
         <div class="footer-content">
             <div class="footer-left">
