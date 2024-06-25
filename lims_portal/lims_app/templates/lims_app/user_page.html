@@ -3,19 +3,157 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Library Home Page</title>
+    <title>Library User Page</title>
     {% load static %}
-    <link rel="stylesheet" href="{% static 'CSS/user_page.css' %}">
+    <link rel="stylesheet" href="{% static 'CSS/landing_styles.css' %}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-size: cover;
+            background-color: #c2b48a;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background-image: none
+        }
+
+        .container {
+            width: 90%;
+            margin: 20px auto;
+            padding: 20px 0;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+
+        .dashboard {
+            padding: 20px;
+        }
+
+        .greeting {
+            text-align: center;
+            margin-bottom: 20px;
+            margin-top: 10px;
+        }
+
+        .search-bar-component {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .search-bar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .search-facet {
+            display: flex;
+            align-items: center;
+        }
+
+        .search-facet-selector {
+            margin-right: 10px;
+        }
+
+        .search-facet-selector select, .search-bar-input input[type="text"] {
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            width: 400px;
+        }
+
+        .search-facet-selector select {
+            width: 150px;
+        }
+
+        .search-bar-input {
+            display: flex;
+            align-items: center;
+        }
+
+        .search-bar-input input[type="submit"] {
+            padding: 10px 20px;
+            background-color: #1abc9c;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+
+        }
+
+        .search-bar-input input[type="submit"]:hover {
+            background-color: darkgreen;
+        }
+
+        .vertical-separator {
+            width: 1px;
+            height: 30px;
+            background-color: #ccc;
+            margin: 0 10px;
+        }
+
+        .search-results {
+            margin: 20px 0;
+        }
+
+        .book-item {
+            background-color: #e0e0e0;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+
+        .book-item a {
+            text-decoration: none;
+            color: #2c3e50;
+        }
+
+        .book-item p {
+            margin: 5px 0;
+        }
+        .header-text h1, .header-text h2 {
+            color: white;
+        }
+
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            flex: 1;
+        }
+
+        footer {
+            padding: 20px;
+            text-align: center;
+            margin-top: auto;
+        }
+    </style>
 </head>
 <body>
-     <header class="header">
+    <!-- Header -->
+    <header class="header">
         <div class="header-content">
             <div class="logo-container">
                 <img src="{% static 'images/logo.jpg' %}" alt="Library Logo" class="logo">
                 <h1>TJK Library</h1>
             </div>
             <div class="header-text">
-                <h1>Welcome to TJK Library</h1>
+                <h1>Welcome to TJK Library, {{ user.username }} !</h1>
                 <h2><em>Where Knowledge Blooms and Minds Flourish with Every Turn of the Page.</em></h2>
             </div>
             <img src="{% static 'images/header.png' %}" alt="Decoration" class="decoration">
@@ -23,27 +161,27 @@
         <nav>
             <ul>
                 <li><a href="{% url 'home' %}" class="nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}">Home</a></li>
-                <li><a href="#">Categories</a></li>
-                <li><a href="#">My Reservations</a></li>
-                <li><a href="#">History</a></li>
-                <li><a href="#">Recommendations</a></li>
+                <li><a href="#" class="nav-link">Categories</a></li>
+                <li><a href="#" class="nav-link">My Reservations</a></li>
+                <li><a href="#" class="nav-link">History</a></li>
+                <li><a href="#" class="nav-link">Recommendations</a></li>
                 <li><a href="{% url 'contact' %}" class="nav-link {% if request.resolver_match.url_name == 'contact' %}active{% endif %}">Contact</a></li>
-                <li><a href="{% url 'home' %}">Logout</a></li>
+                <li><a href="{% url 'userlogout' %}" class="nav-link {% if request.resolver_match.url_name == 'userlogout' %}active{% endif %}">Logout</a></li>
             </ul>
         </nav>
     </header>
-    <div class="container">
+    <!-- Main Content -->
+        <div class="container">
         <div class="dashboard">
             <div class="greeting">
-                <h2>Welcome, [User's Name]!</h2>
-                <p>What would you like to do today?</p>
+                <h2>Which book would you like to read today?</h2>
             </div>
             <div class="search-bar-component">
                 <div class="search-bar">
                     <div class="search-facet">
                         <label class="search-facet-selector">
                             <span aria-hidden="true" class="search-facet-value">Search By</span>
-                            <select aria-label="Search by">
+                            <select name="search_by" aria-label="Search by" form="search-form">
                                 <option value="all">All</option>
                                 <option value="name">Name</option>
                                 <option value="author">Author</option>
@@ -51,54 +189,47 @@
                             </select>
                         </label>
                     </div>
-                    <form class="search-bar-input" action="/search" method="get">
+                    <form id="search-form" class="search-bar-input" action="{% url 'search_books' %}" method="get">
                         <input type="text" name="q" placeholder="Search..." aria-label="Search" autocomplete="off">
                         <input type="submit" value="Search" class="search-bar-submit" aria-label="Search submit">
                     </form>
                 </div>
             </div>
-            <div class="stats">
-                <h3 class="section-title">Your Statistics</h3>
-                <div class="stats-item">
-                    <p>Total Books Borrowed: <span>23</span></p>
-                </div>
-                <div class="stats-item">
-                    <p>Books Currently Borrowed: <span>3</span></p>
-                </div>
-                <div class="stats-item">
-                    <p>Books Reserved: <span>2</span></p>
-                </div>
-                <div class="stats-item">
-                    <p>Fines Due: <span>$0.00</span></p>
-                </div>
-            </div>
-            <div class="recent-activity">
-                <h3 class="section-title">Recent Activity</h3>
-                <div class="activity-item">
-                    <p>You borrowed <span>"The Great Gatsby"</span> on <span>June 10, 2024</span>.</p>
-                </div>
-                <div class="activity-item">
-                    <p>You reserved <span>"1984"</span> on <span>June 12, 2024</span>.</p>
-                </div>
-                <div class="activity-item">
-                    <p>You returned <span>"To Kill a Mockingbird"</span> on <span>June 5, 2024</span>.</p>
-                </div>
-            </div>
-            <div class="featured-books">
-                <h3 class="section-title">Featured Books</h3>
-                <div class="book-item">
-                    <p><span>"Moby Dick"</span> by <span>Herman Melville</span></p>
-                </div>
-                <div class="book-item">
-                    <p><span>"Pride and Prejudice"</span> by <span>Jane Austen</span></p>
-                </div>
-                <div class="book-item">
-                    <p><span>"War and Peace"</span> by <span>Leo Tolstoy</span></p>
-                </div>
+            <div class="search-results">
+                {% if query %}
+                    <h3>Search Results for "{{ query }}"</h3>
+                    {% if books %}
+                        {% for book in books %}
+                            <div class="book-item">
+                                <a href="{% url 'book_profile' book.id %}">
+                                    <p><strong>Name:</strong> {{ book.name }}</p>
+                                    <p><strong>Author:</strong> {{ book.author }}</p>
+                                    <p><strong>Category:</strong> {{ book.category }}</p>
+                                    <p><strong>Description:</strong> {{ book.description }}</p>
+                                </a>
+                            </div>
+                        {% endfor %}
+                    {% else %}
+                        <p>No books found matching your search criteria.</p>
+                    {% endif %}
+                {% else %}
+                    <h3>Recommended Books</h3>
+                    {% for book in books %}
+                        <div class="book-item">
+                            <a href="{% url 'book_profile' book.id %}">
+                                <p><strong>Name:</strong> {{ book.name }}</p>
+                                <p><strong>Author:</strong> {{ book.author }}</p>
+                                <p><strong>Category:</strong> {{ book.category }}</p>
+                                <p><strong>Description:</strong> {{ book.description }}</p>
+                            </a>
+                        </div>
+                    {% endfor %}
+                {% endif %}
             </div>
         </div>
     </div>
-<footer>
+    <!-- Footer -->
+    <footer>
         <div class="footer-content">
             <div class="footer-left">
                 <h3>Contact Us</h3>
