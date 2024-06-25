@@ -102,6 +102,9 @@ def select_redirect(request):
 def services(request):
     return render(request, 'lims_app/services.html')
 
+def base(request):
+    return render(request, 'lims_app/base.html')
+
 @login_required(login_url="login")
 def search_books(request):
     query = request.GET.get('q')
