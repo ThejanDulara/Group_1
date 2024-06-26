@@ -22,9 +22,7 @@
         </div>
         <nav>
             <ul>
-                <li><a href="{% url 'home' %}" class="nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}">Home</a></li>
-                <li><a href="#">Borrowing Requests</a></li>
-                <li><a href="#">Search Books</a></li>
+                <li><a href="{% url 'Staff' %}">Borrowing Requests</a></li>
                 <li><a href="#">Manage Members</a></li>
                 <li><a href="{% url 'add_books' %}">Add Books</a></li>
                 <li><a href="{% url 'home' %}" class="nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}">Logout</a></li>
@@ -37,23 +35,6 @@
             <h2>Borrowing Requests</h2>
             <div id="requests">
                 <!-- Borrowing requests will be displayed here -->
-            </div>
-        </section>
-        <section class="search-section">
-            <h2>Search Books</h2>
-            <input type="text" id="search-bar" placeholder="Search for books...">
-            <button id="search-button">Search</button>
-            <div id="search-results">
-                <!-- Search results will be displayed here -->
-            </div>
-        </section>
-        <section class="manage-members">
-            <h2>Manage Members</h2>
-            <input type="text" id="member-search-bar" placeholder="Search for members...">
-            <button id="member-search-button">Search</button>
-            <div id="members-list">
-                <!-- Members list will be displayed here -->
-            </div>
         </section>
     </main>
 <footer>
