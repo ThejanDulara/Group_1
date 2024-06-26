@@ -1,4 +1,4 @@
-/* Reset default margin and padding */
+t margin and padding */
 * {
     margin: 0;
     padding: 0;
@@ -9,7 +9,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-image: url('../images/background.jpeg'); /* Path to your background image */
+    background-image: url('../images/background.jpeg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
@@ -17,7 +17,7 @@ body {
 }
 
 .header {
-    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+    background-color: rgba(0, 0, 0, 0.7);
     color: #fff;
     padding: 20px 0;
 }
@@ -124,13 +124,13 @@ main {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    max-width: 1200px; /* Ensure it matches main's max-width */
+    max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
 }
 
 .contact-details {
-    width: calc(50% - 20px); /* Adjusted width to fit two boxes per row with margin */
+    width: calc(50% - 20px);
     margin-bottom: 40px;
     padding: 20px;
     background-color: rgba(255, 255, 255, 0.8);
@@ -140,26 +140,26 @@ main {
 }
 
 .left {
-    flex-basis: calc(50% - 20px); /* Adjust width for left side */
-    margin-right: 20px; /* Space between left and right sections */
+    flex-basis: calc(50% - 20px);
+    margin-right: 20px;
 }
 
 .right {
-    flex-basis: calc(50% - 20px); /* Adjust width for right side */
-    margin-left: 20px; /* Space between left and right sections */
+    flex-basis: calc(50% - 20px);
+    margin-left: 20px;
 }
 
 .head-image {
     width: 150px;
     height: 150px;
-    border-radius: 10%; /* Make the image completely round */
+    border-radius: 10%;
     background-size: cover;
     background-position: center;
-    margin-right: 20px; /* Space between image and text */
+    margin-right: 20px;
     align-items: center;
 }
 
-/* Individual styles for each person's image */
+
 .head-image.thejan {
     background-image: url('../images/image1.jpg');
 }
@@ -185,7 +185,7 @@ main {
 }
 
 .contact-info {
-    flex: 1; /* Take remaining space */
+    flex: 1;
 }
 
 .contact-info h2 {
@@ -264,8 +264,8 @@ footer {
 .footer-right a img {
     width: 24px;
     height: 24px;
-    margin-right: 10px; /* Adds 10px space between the image and text */
-    vertical-align: middle; /* Ensures the image is vertically aligned with the text */
+    margin-right: 10px;
+    vertical-align: middle;
 }
 
 footer p {
