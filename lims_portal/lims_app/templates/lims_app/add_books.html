@@ -22,9 +22,7 @@
         </div>
         <nav>
             <ul>
-                <li><a href="{% url 'home' %}" class="nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}">Home</a></li>
-                <li><a href="#">Borrowing Requests</a></li>
-                <li><a href="#">Search Books</a></li>
+                <li><a href="{% url 'Staff' %}">Borrowing Requests</a></li>
                 <li><a href="#">Manage Members</a></li>
                 <li><a href="{% url 'add_books' %}" class="nav-link {% if request.resolver_match.url_name == 'add_books' %}active{% endif %}">Add Books</a></li>
                 <li><a href="{% url 'home' %}" class="nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}">Logout</a></li>

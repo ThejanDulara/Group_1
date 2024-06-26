@@ -146,3 +146,6 @@ def category(request):
 def reservation(request):
     return render(request, 'lims_app/reservation.html')
 
+
+
+
