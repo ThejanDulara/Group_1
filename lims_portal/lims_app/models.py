@@ -11,6 +11,9 @@ class AddBook(models.Model):
     description = models.TextField()
     image = models.ImageField(upload_to='book_images/', null=True, blank=True)
 
+    def __str__(self):
+        return self.name
+
 
 class profile(models.Model):
     GENDER_CHOICES = [
@@ -25,6 +28,8 @@ class profile(models.Model):
 
     def __str__(self):
         return self.user.username
+
+
 
 
 

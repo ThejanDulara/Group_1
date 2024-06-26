@@ -87,7 +87,8 @@ def signup(request):
 def user_logout(request):
     auth.logout(request)
     return redirect("home")
-  
+
+
 @login_required(login_url="login")
 def select_redirect(request):
     if not request.user.is_superuser:
@@ -100,11 +101,14 @@ def select_redirect(request):
 
     return render(request, 'lims_app/select_redirect.html')
 
+
 def services(request):
     return render(request, 'lims_app/services.html')
 
+
 def base(request):
     return render(request, 'lims_app/base.html')
+
 
 @login_required(login_url="login")
 def search_books(request):
@@ -130,13 +134,15 @@ def search_books(request):
     return render(request, 'lims_app/user_page.html', {'books': books, 'query': query, 'search_by': search_by})
 
 
-
 def book_profile(request, id):
-    book = get_object_or_404(AddBook, id=id)
-    return render(request, 'lims_app/book_profile.html', {'book': book})
+    addbook = get_object_or_404(AddBook, id=id)
+    return render(request, 'lims_app/book_profile.html', {'addbook': addbook})
+
 
 def category(request):
     return render(request, 'lims_app/category.html')
 
+
 def reservation(request):
     return render(request, 'lims_app/reservation.html')
+
