@@ -18,7 +18,7 @@ body {
     padding: 20px 0;
     width: 100%;
     box-sizing: border-box;
-    /* Remove fixed positioning */
+
 }
 
 .header-content {
@@ -117,7 +117,7 @@ nav ul li a:hover {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 300px;
     text-align: center;
-    margin: 80px auto 100px auto; /* Increased margin-bottom for more space */
+    margin: 80px auto 100px auto;
     z-index: 500;
     position: relative;
 }
@@ -262,8 +262,8 @@ footer {
 .footer-right a img {
     width: 24px;
     height: 24px;
-    margin-right: 10px; /* Adds 10px space between the image and text */
-    vertical-align: middle; /* Ensures the image is vertically aligned with the text */
+    margin-right: 10px;
+    vertical-align: middle;
 }
 
 footer p {

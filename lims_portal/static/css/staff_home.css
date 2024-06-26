@@ -1,4 +1,4 @@
-/* Reset default margin and padding */
+
 * {
     margin: 0;
     padding: 0;
@@ -18,7 +18,7 @@ body {
 }
 
 .header {
-    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+    background-color: rgba(0, 0, 0, 0.7);
     color: #fff;
     padding: 20px 0;
 }
@@ -116,10 +116,10 @@ nav ul li a:hover {
 
 
 main {
-    width: 70%; /* Adjusted width */
-    height: 400px; /* Increased height in pixels */
+    width: 70%;
+    height: 400px;
     margin: 70px auto;
-    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+    background-color: rgba(255, 255, 255, 0.8);
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -209,8 +209,8 @@ footer {
 .footer-right a img {
     width: 24px;
     height: 24px;
-    margin-right: 10px; /* Adds 10px space between the image and text */
-    vertical-align: middle; /* Ensures the image is vertically aligned with the text */
+    margin-right: 10px;
+    vertical-align: middle;
 }
 
 footer p {

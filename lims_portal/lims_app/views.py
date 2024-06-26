@@ -15,7 +15,7 @@ def add_books(request):
         form = AddBookForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return redirect('add_books')  # Redirect to the same page after saving
+            return redirect('add_books')
     else:
         form = AddBookForm()
 
@@ -61,9 +61,9 @@ def user_login(request):
             if user is not None:
                 auth.login(request, user)
                 if user.is_superuser:
-                    return redirect('select_redirect')  # Redirect to select redirect view for superusers
+                    return redirect('select_redirect')
                 else:
-                    return redirect("user_page")  # Redirect normal users to user page
+                    return redirect("user_page")
 
     context = {'loginform': form}
 
@@ -76,7 +76,7 @@ def signup(request):
         if form.is_valid():
             user = form.save()
             login(request, user)
-            return redirect("login")  # Redirect to user page after successful registration
+            return redirect("login")
     else:
         form = CreateUserForm()
 
